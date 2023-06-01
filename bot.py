@@ -348,7 +348,7 @@ async def config(client: Client, message: Message):
 	Config[username]["host"] = host
 	Config[username]["repoid"] = int(repoid)
 	await bot.send_message(Channel_Id,f"#Cuentas\n\n{cuenta}")
-	await send("✅ 𝑫𝒐𝒏𝒆" ✅)
+	await send("✅ 𝑫𝒐𝒏𝒆 ✅")
 
 @bot.on_message(filters.command("zips", prefixes="/")& filters.private)
 async def zips(client: Client, message: Message):
