@@ -771,7 +771,7 @@ async def mkdir(client: Client, message: Message):
 		return
 	rut = root[username]["actual_root"]
 	os.mkdir(f"{rut}/{name}")
-	await send(f"𝙎𝙚 𝙘𝙧𝙚𝙤 𝙡𝙖 𝙘𝙖𝙧𝙥𝙚𝙩𝙖\n\n /{name}")
+	await send(f"📂𝙎𝙚 𝙘𝙧𝙚𝙤 𝙡𝙖 𝙘𝙖𝙧𝙥𝙚𝙩𝙖📂\n\n /{name}")
 	msg = files_formatter(str(root[username]["actual_root"]),username)
 	await limite_msg(msg[0],username)
 
@@ -900,7 +900,7 @@ async def ls(client: Client, message: Message):
 	await limite_msg(msg[0],username)
 	return
 
-@bot.on_message(filters.command("up_", prefixes="/") & filters.private)
+@bot.on_message(filters.command("up", prefixes="/") & filters.private)
 async def up(client: Client, message: Message):	
 	username = message.from_user.username
 	send = message.reply
@@ -982,12 +982,12 @@ async def tg(client: Client, message: Message):
 	msgh = files_formatter(str(root[username]["actual_root"]),username)
 	try:
 		path = str(root[username]["actual_root"]+"/")+msgh[1][list]
-		msg = await send(f"𝑺𝒆𝒍𝒆𝒄𝒄𝒊𝒐𝒏𝒂𝒅𝒐 **{path}**")
+		msg = await send(f"✨𝑺𝒆𝒍𝒆𝒄𝒄𝒊𝒐𝒏𝒂𝒅𝒐✨ **{path}**")
 		filename = msgh[1][list]
 		start = time()
 		r = await bot.send_document(username,path,file_name=filename,progress=downloadmessage_tg,
 									progress_args=(filename,start,msg))	
-		await msg.edit("𝑺𝒖𝒃𝒊𝒅𝒂 𝑪𝒐𝒎𝒑𝒍𝒆𝒕𝒂𝒅𝒂")
+		await msg.edit("🔺𝑺𝒖𝒃𝒊𝒅𝒂 𝑪𝒐𝒎𝒑𝒍𝒆𝒕𝒂𝒅𝒂🔺")
 		return
 	except Exception as ex:
 		await send(ex)
@@ -1218,7 +1218,7 @@ async def delete_draft_y_down_media(client: Client, message: Message):
 		return
 	else:
 		downlist[username].append(message)
-		await send("𝑨𝒓𝒄𝒉𝒊𝒗𝒐 𝑪𝒂𝒓𝒈𝒂𝒅𝒐, 𝒖𝒔𝒆 __/download__ 𝒔𝒊 𝒆𝒔 𝒆𝒍 𝒖𝒍𝒕𝒊𝒎𝒐", quote=True)
+		await send("🔯𝑨𝒓𝒄𝒉𝒊𝒗𝒐 𝑪𝒂𝒓𝒈𝒂𝒅𝒐, 𝒖𝒔𝒆 __/download__ 𝒔𝒊 𝒆𝒔 𝒆𝒍 𝒖𝒍𝒕𝒊𝒎𝒐🔯", quote=True)
 		print(len(downlist[username]))
 		return
 
