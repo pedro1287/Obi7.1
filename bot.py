@@ -90,23 +90,23 @@ async def start(client: Client, message: Message):
 ##	uname = platform.uname()
 ##	svmem = psutil.virtual_memory()
 	a = await client.send_message(username,'**🔎 Buscando Datos**')
-	msg = f"✧ 𝐁𝐨𝐭 𝐂𝐨𝐧𝐟𝐢𝐠𝐮𝐫𝐚𝐭𝐢𝐨𝐧\n"
-	msg += f"▶️𝘡𝘪𝘱𝘴 𝘤𝘰𝘯𝘧𝘪𝘨𝘶𝘳𝘢𝘥𝘰𝘴 𝘢: **{zipps}MB**\n"	    
-	msg += "▶️𝘌𝘴𝘵𝘢𝘥𝘰 𝘥𝘦𝘭 𝘣𝘰𝘵: "+ Configs["s"] +"\n"
+	msg = f"❇️ 𝐁𝐨𝐭 𝐂𝐨𝐧𝐟𝐢𝐠𝐮𝐫𝐚𝐭𝐢𝐨𝐧 ❇️\n"
+	msg += f"🔰𝘡𝘪𝘱𝘴 𝘤𝘰𝘯𝘧𝘪𝘨𝘶𝘳𝘢𝘥𝘰𝘴 𝘢: **{zipps}MB**\n"	    
+	msg += "🔰𝘌𝘴𝘵𝘢𝘥𝘰 𝘥𝘦𝘭 𝘣𝘰𝘵: "+ Configs["s"] +"\n"
 	if auto == "y":
-		msg += "▶️𝘈𝘶𝘵𝘰𝘮𝘢𝘵𝘪𝘤 𝘜𝘱: **On**\n\n"
+		msg += "🔰𝘈𝘶𝘵𝘰𝘮𝘢𝘵𝘪𝘤 𝘜𝘱: **On**\n\n"
 	else:
-		msg += "▶️𝘈𝘶𝘵𝘰𝘮𝘢𝘵𝘪𝘤 𝘜𝘱: **Off**\n\n"
+		msg += "🔰𝘈𝘶𝘵𝘰𝘮𝘢𝘵𝘪𝘤 𝘜𝘱: **Off**\n\n"
 	if Configs[username]["a"] == "j":
-		mode = "▶️𝘌𝘥𝘶𝘤𝘢 ➥ **Directs Links**\n"
+		mode = "🔰𝘌𝘥𝘶𝘤𝘢 ➥ **Directs Links**\n"
 	elif Configs[username]["a"] == "c":
-		mode = "▶️𝘜𝘤𝘭𝘷 ➥ **Directs Links (Calendar)**\n"
+		mode = "🔰𝘜𝘤𝘭𝘷 ➥ **Directs Links (Calendar)**\n"
 	elif Configs[username]["a"] == "d":
-		mode = "▶️𝘗𝘦𝘳𝘴𝘰𝘯𝘢𝘭 𝘤𝘭𝘰𝘶𝘥 ➥ **Draft Links**\n\n"
+		mode = "🔰𝘗𝘦𝘳𝘴𝘰𝘯𝘢𝘭 𝘤𝘭𝘰𝘶𝘥 ➥ **Draft Links**\n\n"
 	elif Configs[username]["a"] == "a":
-		mode = "▶️𝘜𝘤𝘭𝘷 ➥ **Directs Links (Procfile)**\n\n"
+		mode = "🔰𝘜𝘤𝘭𝘷 ➥ **Directs Links (Procfile)**\n\n"
 	else:
-		mode = "▶️NEXTCLOUD➥ **Directs Links**\n\n"
+		mode = "🔰NEXTCLOUD➥ **Directs Links**\n\n"
 ##        msg += "𝐒𝐲𝐬𝐭𝐞𝐦 𝐈𝐧𝐟𝐨\n"
 ##        msg += f"➣𝘚𝘺𝘴𝘵𝘦𝘮: **{uname.system}**\n"
 ##        msg += f"➣𝘔𝘢𝘤𝘩𝘪𝘯𝘦: **{uname.machine}**\n\n"
@@ -120,8 +120,8 @@ async def start(client: Client, message: Message):
 ##        msg += f"➣𝘜𝘴𝘦𝘥: **{sizeof_fmt(svmem.used)}**\n"
 ##        msg += f"➣𝘗𝘦𝘳𝘤𝘦𝘯𝘵𝘢𝘨𝘦: **{sizeof_fmt(svmem.percent)}%**\n\n"
 	msg += f"𝐃𝐢𝐬𝐤 𝐈𝐧𝐟𝐨\n"
-	msg += f"▶️𝘛𝘰𝘵𝘢𝘭 𝘴𝘵𝘰𝘳𝘢𝘨𝘦: **{sizeof_fmt(used)}** / **{sizeof_fmt(total)}**\n"
-	msg += f"▶️𝘍𝘳𝘦𝘦 𝘴𝘵𝘰𝘳𝘢𝘨𝘦: **{sizeof_fmt(free)}**\n\n"
+	msg += f"🔰𝘛𝘰𝘵𝘢𝘭 𝘴𝘵𝘰𝘳𝘢𝘨𝘦: **{sizeof_fmt(used)}** / **{sizeof_fmt(total)}**\n"
+	msg += f"🔰𝘍𝘳𝘦𝘦 𝘴𝘵𝘰𝘳𝘢𝘨𝘦: **{sizeof_fmt(free)}**\n\n"
         
 	msg += mode
 	await a.edit(msg)
@@ -1090,7 +1090,7 @@ async def users(client: Client, message: Message):
 	else:pass
 	if username in boss:	
 		total = len(Configs) - 10
-		message = "**Usuarios: **"+ str(total)+'\n\n'
+		message = "**👤Usuarios👤: **"+ str(total)+'\n\n'
 		for user in Configs:
 			if user == "uclv":continue
 			if user == "gtm":continue
@@ -1160,7 +1160,7 @@ async def rv(client: Client, message: Message):
 			Configs[username]['z'] = int(zips)
 			Configs[username]['up_id'] = up_id
 			Configs[username]['mode'] = mode
-			ms = f'⚡ Revistas Config:\n\n〽️ Host: {host}\n〽️ User: {user}\n〽️ Passw: {passw}\n〽️ Up ID: {up_id}\n〽️Zips: {zips} mb\n〽️ Mode: {mode}'
+			ms = f'⚡ Revistas Config: ⚡\n\n〽️ Host: {host} 〽️\n〽️ User: {user} 〽️\n〽️ Passw: {passw} 〽️\n〽️ Up ID: {up_id} 〽️\n〽️Zips: {zips} mb 〽️\n〽️ Mode: {mode} 〽️'
 			await send(ms)
 			try:
 				await send_config()
@@ -1305,7 +1305,7 @@ async def down_link(client: Client, message: Message):
 					filename = r.content_disposition.filename	
 				fsize = int(r.headers.get("Content-Length"))
 				total_up[username]['P']+=fsize
-				msg = await send("𝑹𝒆𝒄𝒐𝒑𝒊𝒍𝒂𝒏𝒅𝒐 𝒊𝒏𝒇𝒐𝒓𝒎𝒂𝒄𝒊ó𝒏")
+				msg = await send("♻️𝑹𝒆𝒄𝒐𝒑𝒊𝒍𝒂𝒏𝒅𝒐 𝒊𝒏𝒇𝒐𝒓𝒎𝒂𝒄𝒊ó𝒏♻️")
 				procesos += 1
 				await client.send_message(Channel_Id,f'**@{username} Envio un #link :**\n**Url:** {url}\n')
 				f = open(f"{j}{filename}","wb")
@@ -1317,11 +1317,11 @@ async def down_link(client: Client, message: Message):
 					f.write(chunk)
 				f.close()
 				file = f"{j}{filename}"
-				await msg.edit("𝑫𝒆𝒔𝒄𝒂𝒓𝒈𝒂 𝒆𝒙𝒊𝒕𝒐𝒔𝒂")
+				await msg.edit("🔻𝑫𝒆𝒔𝒄𝒂𝒓𝒈𝒂 𝒆𝒙𝒊𝒕𝒐𝒔𝒂🔻")
 				if procesos != 0:
 					procesos -= 1
 				else:pass
-				await msg.edit("𝑨𝒓𝒄𝒉𝒊𝒗𝒐 𝒈𝒖𝒂𝒓𝒅𝒂𝒅𝒐")
+				await msg.edit("✅𝑨𝒓𝒄𝒉𝒊𝒗𝒐 𝒈𝒖𝒂𝒓𝒅𝒂𝒅𝒐✅")
 				msg = files_formatter(str(root[username]["actual_root"]),username)
 				await limite_msg(msg[0],username)
 				return
@@ -1426,7 +1426,7 @@ def files_formatter(path,username):
 			dirc.append(str(Path(p).name))
 	result.sort()
 	dirc.sort()
-	msg = f'📑𝑫𝒊𝒓𝒆𝒄𝒕𝒐𝒓𝒊𝒐 𝒂𝒄𝒕𝒖𝒂𝒍📑\n\n `{str(rut).split("downloads/")[-1]}`\n\n'
+	msg = f'🗃️𝑫𝒊𝒓𝒆𝒄𝒕𝒐𝒓𝒊𝒐 𝒂𝒄𝒕𝒖𝒂𝒍🗃️\n\n `{str(rut).split("downloads/")[-1]}`\n\n'
 	if result == [] and dirc == [] :
 		return msg , final
 	for k in dirc:
@@ -1441,7 +1441,7 @@ def files_formatter(path,username):
 		if not "." in n:
 			msg+=f"**{i}**📁 `{n}` `|` `-` \n" 
 		else:
-			msg+=f"**{i}**📃 `{n}` `|` `{sizeof_fmt(size)}` \n"
+			msg+=f"**{i}**🗒️ `{n}` `|` `{sizeof_fmt(size)}` \n  └➣❮ **/up_0** ❯─❮ **/rm_0** ❯"
 		i+=1
 	msg+= f"\n🗑️𝑬𝒍𝒊𝒎𝒊𝒏𝒂𝒓 𝒅𝒊𝒓𝒆𝒄𝒕𝒐𝒓𝒊𝒐 𝒓𝒂𝒊𝒛🗑️\n    **/deleteall**"
 	return msg , final
@@ -1568,11 +1568,11 @@ async def downloadmessage_progres(chunk,filesize,filename,start,message):
 		now = time()
 		diff = now - start
 		mbs = chunk / diff
-		msg = f"📦 𝐍𝐚𝐦𝐞: {filename}\n\n"
+		msg = f"✴️ 𝐍𝐚𝐦𝐞: {filename}\n\n"
 		try:
 			msg+= update_progress_bar(chunk,filesize)+ "  " + sizeof_fmt(mbs)+"/s\n\n"
 		except:pass
-		msg+= f"▶️ 𝙳𝚘𝚠𝚗𝚕𝚘𝚊𝚍𝚒𝚗𝚐: {sizeof_fmt(chunk)} of {sizeof_fmt(filesize)} \n\n"	
+		msg+= f"🔷 𝙳𝚘𝚠𝚗𝚕𝚘𝚊𝚍𝚒𝚗𝚐: {sizeof_fmt(chunk)} of {sizeof_fmt(filesize)} \n\n"	
 		global seg
 		if seg != localtime().tm_sec:
 			try: await message.edit(msg)
@@ -1582,11 +1582,11 @@ def uploadfile_progres(chunk,filesize,start,filename,message):
 	now = time()
 	diff = now - start
 	mbs = chunk / diff
-	msg = f"📦 𝐍𝐚𝐦𝐞: {filename}\n\n"
+	msg = f"✴️ 𝐍𝐚𝐦𝐞: {filename}\n\n"
 	try:
 		msg+=update_progress_bar(chunk,filesize)+ "  " + sizeof_fmt(mbs)+"/s\n\n"
 	except:pass
-	msg+= f"▶️ 𝚄𝚙𝚕𝚘𝚊𝚍𝚒𝚗𝚐: {sizeof_fmt(chunk)} of {sizeof_fmt(filesize)}\n\n"
+	msg+= f"🔷 𝚄𝚙𝚕𝚘𝚊𝚍𝚒𝚗𝚐: {sizeof_fmt(chunk)} of {sizeof_fmt(filesize)}\n\n"
 	global seg
 	if seg != localtime().tm_sec:
 		message.edit(msg)
@@ -1595,11 +1595,11 @@ async def mediafiredownload(chunk,total,filename,start,message):
 	now = time()
 	diff = now - start
 	mbs = chunk / diff
-	msg = f"📦 𝐍𝐚𝐦𝐞: {filename}\n\n"
+	msg = f"✴️ 𝐍𝐚𝐦𝐞: {filename}\n\n"
 	try:
 		msg+= update_progress_bar(chunk,total)+ "  " + sizeof_fmt(mbs)+"/s\n\n"
 	except: pass
-	msg+= f"▶️ 𝙳𝚘𝚠𝚗𝚕𝚘𝚊𝚍𝚒𝚗𝚐: {sizeof_fmt(chunk)} of {sizeof_fmt(total)}\n\n"
+	msg+= f"🔷 𝙳𝚘𝚠𝚗𝚕𝚘𝚊𝚍𝚒𝚗𝚐: {sizeof_fmt(chunk)} of {sizeof_fmt(total)}\n\n"
 	global seg
 	if seg != localtime().tm_sec:
 		try: await message.edit(msg)
@@ -1609,11 +1609,11 @@ async def downloadmessage_tg(chunk,filesize,filename,start,message):
 		now = time()
 		diff = now - start
 		mbs = chunk / diff
-		msg = f"📦 𝐍𝐚𝐦𝐞: {filename}\n\n"
+		msg = f"✴️ 𝐍𝐚𝐦𝐞: {filename}\n\n"
 		try:
 			msg+=update_progress_bar(chunk,filesize)+ "  " + sizeof_fmt(mbs)+"/s\n\n"
 		except:pass
-		msg+= f"▶️ 𝚄𝚙𝚕𝚘𝚊𝚍𝚒𝚗𝚐:: {sizeof_fmt(chunk)} of {sizeof_fmt(filesize)}\n\n"	
+		msg+= f"🔷 𝚄𝚙𝚕𝚘𝚊𝚍𝚒𝚗𝚐:: {sizeof_fmt(chunk)} of {sizeof_fmt(filesize)}\n\n"	
 		global seg
 		if seg != localtime().tm_sec:
 			try: await message.edit(msg)
@@ -1734,14 +1734,14 @@ def comprobacion_de_user(username):
 
 def comprobar_solo_un_proceso(username):
 	if id_de_ms[username]["proc"] == "Up" :
-		rup = "𝒀𝒂 𝒕𝒊𝒆𝒏𝒆 𝒖𝒏 𝒑𝒓𝒐𝒄𝒆𝒔𝒐 𝒂𝒄𝒕𝒊𝒗𝒐. 𝑼𝒔𝒆 **/cancel** 𝒐 𝒆𝒔𝒑𝒆𝒓𝒆"
+		rup = "♦️𝒀𝒂 𝒕𝒊𝒆𝒏𝒆 𝒖𝒏 𝒑𝒓𝒐𝒄𝒆𝒔𝒐 𝒂𝒄𝒕𝒊𝒗𝒐. 𝑼𝒔𝒆 **/cancel** 𝒐 𝒆𝒔𝒑𝒆𝒓𝒆♦️"
 		return rup
 	else:
 		return False
 
 def total_de_procesos():
 	global procesos
-	hgy = "𝑬𝒍 𝒃𝒐𝒕 𝒕𝒊𝒆𝒏𝒆 𝒅𝒆𝒎𝒂𝒔𝒊𝒂𝒅𝒐𝒔 𝒑𝒓𝒐𝒄𝒆𝒔𝒐𝒔 𝒂𝒄𝒕𝒊𝒗𝒐𝒔. 𝑷𝒓𝒖𝒆𝒃𝒆 𝒆𝒏 𝒖𝒏𝒐𝒔 𝒎𝒊𝒏𝒖𝒕𝒐𝒔."
+	hgy = "❌𝑬𝒍 𝒃𝒐𝒕 𝒕𝒊𝒆𝒏𝒆 𝒅𝒆𝒎𝒂𝒔𝒊𝒂𝒅𝒐𝒔 𝒑𝒓𝒐𝒄𝒆𝒔𝒐𝒔 𝒂𝒄𝒕𝒊𝒗𝒐𝒔. 𝑷𝒓𝒖𝒆𝒃𝒆 𝒆𝒏 𝒖𝒏𝒐𝒔 𝒎𝒊𝒏𝒖𝒕𝒐𝒔.❌"
 	if procesos >= 15:
 		return hgy
 	else:
@@ -1755,7 +1755,7 @@ async def borrar_de_draft(message,client,username):
 	pase = Config[username]["password"]
 	hoe = Config[username]["host"]
 	txt = await message.download()
-	a = await client.send_message("❗𝑪𝒐𝒎𝒑𝒓𝒐𝒃𝒂𝒏𝒅𝒐 𝒔𝒆𝒓𝒗𝒊𝒅𝒐𝒓")
+	a = await client.send_message("🌐𝑪𝒐𝒎𝒑𝒓𝒐𝒃𝒂𝒏𝒅𝒐 𝒔𝒆𝒓𝒗𝒊𝒅𝒐𝒓🌐")
 	try:
 		rep = requests.get(hoe,proxies=proxy,timeout=20,allow_redirects=False)
 		await a.edit("𝑺𝒆𝒓𝒗𝒊𝒅𝒐𝒓 𝑶𝒏𝒍𝒊𝒏𝒆 ✔")
@@ -1814,11 +1814,11 @@ async def uploaddraft(file,usid,msg,username):
 	filesize = Path(file).stat().st_size
 	zipssize = 1024*1024*int(zips)
 	
-	await msg.edit("❗𝑪𝒐𝒎𝒑𝒓𝒐𝒃𝒂𝒏𝒅𝒐 𝒔𝒆𝒓𝒗𝒊𝒅𝒐𝒓")
+	await msg.edit("🌐𝑪𝒐𝒎𝒑𝒓𝒐𝒃𝒂𝒏𝒅𝒐 𝒔𝒆𝒓𝒗𝒊𝒅𝒐𝒓🌐")
 	try:
 		async with session.get(host,timeout=20,ssl=False) as resp:
 			await resp.text()
-			await msg.edit("𝑺𝒆𝒓𝒗𝒊𝒅𝒐𝒓 𝑶𝒏𝒍𝒊𝒏𝒆 ✔")
+			await msg.edit("❇️𝑺𝒆𝒓𝒗𝒊𝒅𝒐𝒓 𝑶𝒏𝒍𝒊𝒏𝒆❇️")
 	except Exception as ex:
 		await msg.edit(f"{host} is Down:\n\n{ex}")
 		return
