@@ -1441,7 +1441,7 @@ def files_formatter(path,username):
 		if not "." in n:
 			msg+=f"**{i}**📁 `{n}` `|` `-` \n" 
 		else:
-			msg+=f"**{i}**🗒️ `{n}` `|` `{sizeof_fmt(size)}` \n  └➣❮ **/up** {i} ❯─❮ **/rm** {i} ❯"
+			msg+=f"**{i}**🗒️ `{n}` `|` `{sizeof_fmt(size)}` \n  └➣❮ **/up** {i} ❯─❮ **/rm** {i} ❯ \n"
 		i+=1
 	msg+= f"\n🗑️𝑬𝒍𝒊𝒎𝒊𝒏𝒂𝒓 𝒅𝒊𝒓𝒆𝒄𝒕𝒐𝒓𝒊𝒐 𝒓𝒂𝒊𝒛🗑️\n    **/deleteall**"
 	return msg , final
