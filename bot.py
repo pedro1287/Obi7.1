@@ -89,7 +89,7 @@ async def start(client: Client, message: Message):
 	free = shutil.disk_usage(os.getcwd())[2]	
 ##	uname = platform.uname()
 ##	svmem = psutil.virtual_memory()
-	a = await client.send_message(username,'**🔎 Buscando Datos**')
+	a = await client.send_message(username,'**⏳ Buscando Datos ⏳**')
 	msg = f"❇️ 𝐁𝐨𝐭 𝐂𝐨𝐧𝐟𝐢𝐠𝐮𝐫𝐚𝐭𝐢𝐨𝐧 ❇️\n"
 	msg += f"🔰𝘡𝘪𝘱𝘴 𝘤𝘰𝘯𝘧𝘪𝘨𝘶𝘳𝘢𝘥𝘰𝘴 𝘢: **{zipps}MB**\n"	    
 	msg += "🔰𝘌𝘴𝘵𝘢𝘥𝘰 𝘥𝘦𝘭 𝘣𝘰𝘵: "+ Configs["s"] +"\n"
@@ -122,7 +122,8 @@ async def start(client: Client, message: Message):
 	msg += f"𝐃𝐢𝐬𝐤 𝐈𝐧𝐟𝐨\n"
 	msg += f"🔰𝘛𝘰𝘵𝘢𝘭 𝘴𝘵𝘰𝘳𝘢𝘨𝘦: **{sizeof_fmt(used)}** / **{sizeof_fmt(total)}**\n"
 	msg += f"🔰𝘍𝘳𝘦𝘦 𝘴𝘵𝘰𝘳𝘢𝘨𝘦: **{sizeof_fmt(free)}**\n\n"
-        
+        msg += f"🆔 Bot De @Michel1203 🆔\n"
+	
 	msg += mode
 	await a.edit(msg)
 
@@ -562,7 +563,7 @@ async def download_archive(client: Client, message: Message):
 		return
 	else:pass
 	procesos += 1
-	msg = await send("𝑹𝒆𝒄𝒐𝒑𝒊𝒍𝒂𝒏𝒅𝒐 𝒊𝒏𝒇𝒐𝒓𝒎𝒂𝒄𝒊ó𝒏")
+	msg = await send("⏳𝑹𝒆𝒄𝒐𝒑𝒊𝒍𝒂𝒏𝒅𝒐 𝒊𝒏𝒇𝒐𝒓𝒎𝒂𝒄𝒊ó𝒏⏳")
 	count = 0
 	for i in downlist[username]:
 		filesize = int(str(i).split('"file_size":')[1].split(",")[0])
@@ -573,11 +574,11 @@ async def download_archive(client: Client, message: Message):
 			filename = str(randint(11111,999999))+".mp4"
 		await bot.send_message(Channel_Id,f'**@{username} Envio un #archivo:**\n**Filename:** {filename}\n**Size:** {sizeof_fmt(filesize)}')	
 		start = time()		
-		await msg.edit(f"𝑷𝒓𝒆𝒑𝒂𝒓𝒂𝒏𝒅𝒐 𝑫𝒆𝒔𝒄𝒂𝒓𝒈𝒂\n\n`{filename}`")
+		await msg.edit(f"⚠️𝑷𝒓𝒆𝒑𝒂𝒓𝒂𝒏𝒅𝒐 𝑫𝒆𝒔𝒄𝒂𝒓𝒈𝒂⚠️\n\n`{filename}`")
 		try:
 			a = await i.download(file_name=str(root[username]["actual_root"])+"/"+filename,progress=downloadmessage_progres,progress_args=(filename,start,msg))
 			if Path(str(root[username]["actual_root"])+"/"+ filename).stat().st_size == filesize:
-				await msg.edit("𝑫𝒆𝒔𝒄𝒂𝒓𝒈𝒂 𝒆𝒙𝒊𝒕𝒐𝒔𝒂")
+				await msg.edit("🟢𝑫𝒆𝒔𝒄𝒂𝒓𝒈𝒂 𝒆𝒙𝒊𝒕𝒐𝒔𝒂🟢")
 				count +=1
 		except Exception as ex:
 			if procesos > 0:
@@ -591,7 +592,7 @@ async def download_archive(client: Client, message: Message):
 		if procesos > 0:
 			procesos -= 1
 		else:pass
-		await msg.edit("𝑻𝒐𝒅𝒐𝒔 𝒍𝒐𝒔 𝒂𝒓𝒄𝒉𝒊𝒗𝒐𝒔 𝒉𝒂𝒏 𝒔𝒊𝒅𝒐 𝒅𝒆𝒔𝒄𝒂𝒓𝒈𝒂𝒅𝒐𝒔")
+		await msg.edit("💠𝑻𝒐𝒅𝒐𝒔 𝒍𝒐𝒔 𝒂𝒓𝒄𝒉𝒊𝒗𝒐𝒔 𝒉𝒂𝒏 𝒔𝒊𝒅𝒐 𝒅𝒆𝒔𝒄𝒂𝒓𝒈𝒂𝒅𝒐𝒔💠")
 		downlist[username] = []
 		count = 0
 		msg = files_formatter(str(root[username]["actual_root"]),username)
@@ -809,7 +810,7 @@ async def mv(client: Client, message: Message):
 			actual = str(root[username]["actual_root"]+"/")+msgh[1][actual_dir]
 			k = actual.split("downloads/")[-1]
 			t = new.split("downloads/")[-1]
-			await send(f"𝑴𝒐𝒗𝒊𝒅𝒐 𝒄𝒐𝒓𝒓𝒆𝒄𝒕𝒂𝒎𝒆𝒏𝒕𝒆\n\n `{k}` ➥ `{t}`")
+			await send(f"♦️𝑴𝒐𝒗𝒊𝒅𝒐 𝒄𝒐𝒓𝒓𝒆𝒄𝒕𝒂𝒎𝒆𝒏𝒕𝒆♦️\n\n `{k}` ➥ `{t}`")
 			shutil.move(actual,new)
 			msg = files_formatter(str(root[username]["actual_root"]),username)
 			await limite_msg(msg[0],username)
@@ -900,7 +901,7 @@ async def ls(client: Client, message: Message):
 	await limite_msg(msg[0],username)
 	return
 
-@bot.on_message(filters.command("up", prefixes="/") & filters.private)
+@bot.on_message(filters.command("up_", prefixes="/") & filters.private)
 async def up(client: Client, message: Message):	
 	username = message.from_user.username
 	send = message.reply
@@ -937,7 +938,7 @@ async def up(client: Client, message: Message):
 	try:
 		path = str(root[username]["actual_root"]+"/")+msgh[1][list]
 		print(18)
-		msg = await send(f"𝑺𝒆𝒍𝒆𝒄𝒄𝒊𝒐𝒏𝒂𝒅𝒐 **{path}**")
+		msg = await send(f"⚠️𝑺𝒆𝒍𝒆𝒄𝒄𝒊𝒐𝒏𝒂𝒅𝒐 **{path}**")
 		print(19)
 		if Configs[username]["m"] == "u":
 			fd = await uploadfile(path,user_id,msg,username)
@@ -1072,7 +1073,7 @@ async def change_status(client: Client, message: Message):
 			Configs["s"] = "On"
 		else:
 			Configs["s"] = "Off"
-		await send(f"__**Status cambiado a **__"+  Configs["s"])
+		await send(f"__**💡 Status cambiado a 💡**__"+  Configs["s"])
 		await send_config()
 	else :
 		await send("🚷 𝑪𝒐𝒎𝒂𝒏𝒅𝒐 𝒑𝒂𝒓𝒂 𝒂𝒅𝒎𝒊𝒏𝒊𝒔𝒕𝒓𝒂𝒅𝒐𝒓𝒆𝒔 🚷")
@@ -1426,7 +1427,7 @@ def files_formatter(path,username):
 			dirc.append(str(Path(p).name))
 	result.sort()
 	dirc.sort()
-	msg = f'🗃️𝑫𝒊𝒓𝒆𝒄𝒕𝒐𝒓𝒊𝒐 𝒂𝒄𝒕𝒖𝒂𝒍🗃️\n\n `{str(rut).split("downloads/")[-1]}`\n\n'
+	msg = f'🗂️ 𝑫𝒊𝒓𝒆𝒄𝒕𝒐𝒓𝒊𝒐 𝒂𝒄𝒕𝒖𝒂𝒍 🗂️\n\n `{str(rut).split("downloads/")[-1]}`\n\n'
 	if result == [] and dirc == [] :
 		return msg , final
 	for k in dirc:
