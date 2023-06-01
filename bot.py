@@ -122,7 +122,6 @@ async def start(client: Client, message: Message):
 	msg += f"𝐃𝐢𝐬𝐤 𝐈𝐧𝐟𝐨\n"
 	msg += f"🔰𝘛𝘰𝘵𝘢𝘭 𝘴𝘵𝘰𝘳𝘢𝘨𝘦: **{sizeof_fmt(used)}** / **{sizeof_fmt(total)}**\n"
 	msg += f"🔰𝘍𝘳𝘦𝘦 𝘴𝘵𝘰𝘳𝘢𝘨𝘦: **{sizeof_fmt(free)}**\n\n"
-        msg += f"🆔 Bot De @Michel1203 🆔\n"
 	
 	msg += mode
 	await a.edit(msg)
