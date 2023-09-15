@@ -2161,8 +2161,8 @@ async def medisur_api(file,usid,msg,username):
 		async with aiohttp.ClientSession(connector=connector) as session:
 			payload = payload = {}
 			payload["source"] = "/index.php/medisur/user/profile"
-			payload["username"] = "lazaro12"
-			payload["password"] = "Lazaro12."
+			payload["username"] = "raydel0306"
+			payload["password"] = "R@ydel2022*"
 			async with session.post(host+"login/signIn", data=payload) as e:
 				print(222)
 				print(e.url)
