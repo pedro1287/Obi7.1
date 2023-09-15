@@ -1149,7 +1149,7 @@ async def medisur(client: Client, message: Message):
 		return
 	else:
 		Configs[username]['m'] = 'medisur'
-		Configs[username]['z'] = 19
+		Configs[username]['z'] = 20
 		await send("✅ Medisur API Client Upload Activate")
 		try:
 			await send_config()
