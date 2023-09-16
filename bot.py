@@ -1255,8 +1255,8 @@ async def delete_draft_y_down_media(client: Client, message: Message):
 			async with aiohttp.ClientSession(connector=connector) as session:
 				payload = payload = {}
 				payload["source"] = "/index.php/medisur/user/profile"
-				payload["username"] = "raydel0306"
-				payload["password"] = "R@ydel2022*"
+				payload["username"] = "lazaro12"
+				payload["password"] = "Lazaro12."
 				async with session.post(host+"login/signIn", data=payload) as e:
 					print(222)
 				for url in urls:
