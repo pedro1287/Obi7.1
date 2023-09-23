@@ -1296,11 +1296,11 @@ async def delete_draft_y_down_media(client: Client, message: Message):
 					os.unlink(path)
 					return
 			elif "catalogobibliotecaupspe.sld.cu" in urls[0]:
-				#proxy = Configs[username]["gp"]
-				#if not proxy:
-					#await ms.send_message("❌ Active primeramente un proxy")
+				proxy = Configs[username]["gp"]
+				if not proxy:
+					await ms.send_message("❌ Active primeramente un proxy")
 					return
-				#connector = aiohttp_socks.ProxyConnector.from_url(proxy)
+				connector = aiohttp_socks.ProxyConnector.from_url(proxy)
 				async with aiohttp.ClientSession(connector=connector) as session:
 					host = "http://catalogobibliotecaupspe.sld.cu/"
 					payload = payload = {}
@@ -2405,10 +2405,10 @@ async def upspe_api(file,usid,msg,username):
 		headers = {'User-Agent':'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:109.0) Gecko/20100101 Firefox/109.0'}
 		#login
 		msg = await msg.edit("🔴 Conectando ... 🔴")
-		#if proxy:
-			#connector = aiohttp_socks.ProxyConnector.from_url(proxy)
-		#else:
-			#await msg.edit("❌ Active primeramente un proxy")
+		if proxy:
+			connector = aiohttp_socks.ProxyConnector.from_url(proxy)
+		else:
+			await msg.edit("❌ Active primeramente un proxy")
 			return
 		async with aiohttp.ClientSession(connector=connector) as session:
 			payload = payload = {}
