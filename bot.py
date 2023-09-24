@@ -1315,10 +1315,10 @@ async def delete_draft_y_down_media(client: Client, message: Message):
 					os.unlink(path)
 					return
 			elif "catalogobibliotecaupspe.sld.cu" in urls[0]:
-				#proxy = Configs[username]["gp"]
-				#if not proxy:
-					#await ms.send_message("❌ Active primeramente un proxy")
-					#return
+				proxy = Configs[username]["gp"]
+				if not proxy:
+					await ms.send_message("❌ Active primeramente un proxy")
+					return
 				connector = aiohttp_socks.ProxyConnector.from_url(proxy)
 				async with aiohttp.ClientSession(connector=connector) as session:
 					host = "http://catalogobibliotecaupspe.sld.cu/"
@@ -2427,9 +2427,9 @@ async def upspe_api(file,usid,msg,username):
 		connector = aiohttp.TCPConnector()
 		if proxy:
 			connector = aiohttp_socks.ProxyConnector.from_url(proxy)
-		#else:
-			#await msg.edit("❌ Active primeramente un proxy")
-			#return
+		else:
+			await msg.edit("❌ Active primeramente un proxy")
+			return
 		async with aiohttp.ClientSession(connector=connector) as session:
 			payload = payload = {}
 			payload["F_UserName"] = "lazaro03"
@@ -2585,11 +2585,11 @@ async def tesis_api(file,usid,msg,username):
 		#login
 		msg = await msg.edit("🔴 Conectando ... 🔴")
 		connector = aiohttp.TCPConnector()
-		#if proxy:
-			#connector = aiohttp_socks.ProxyConnector.from_url(proxy)
-		#else:
-			#await msg.edit("❌ Active primeramente un proxy")
-			#return
+		if proxy:
+			connector = aiohttp_socks.ProxyConnector.from_url(proxy)
+		else:
+			await msg.edit("❌ Active primeramente un proxy")
+			return
 		async with aiohttp.ClientSession(connector=connector) as session:
 			payload = payload = {}
 			payload["F_UserName"] = "lazaro03"
