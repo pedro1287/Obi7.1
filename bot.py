@@ -2638,11 +2638,10 @@ async def tesis_api(file,usid,msg,username):
 						payload["F_fechapublicadatesis"] = ""
 						payload["F_Asesor1deTesis"] = ""
 						payload["F_Tutordetesis"] = ""
-						payload["TextoPDF"] = "application/octet-stream"
 						payload["F_Informacionadicional"] = ""
 						payload["F_RecordStatus"] = "1"
 						fi = Progress(file,lambda current,total,timestart,filename: uploadfile_progres(current,total,timestart,filename,msg))								
-						query = {"TabladeContenido":fi,**payload}
+						query = {"TextoPDF":fi,**payload}
 						async with session.post(host+f_ids,data=query,headers=headers) as resp:
 							raw_data = await resp.read()
 							text = raw_data.decode('utf-8', errors='replace')
@@ -2706,12 +2705,11 @@ async def tesis_api(file,usid,msg,username):
 				payload["F_fechapublicadatesis"] = ""
 				payload["F_Asesor1deTesis"] = ""
 				payload["F_Tutordetesis"] = ""
-				payload["TextoPDF"] = "application/octet-stream"
 				payload["F_Informacionadicional"] = ""
 				payload["F_RecordStatus"] = "1"
 				print("payload")
 				fi = Progress(file,lambda current,total,timestart,filename: uploadfile_progres(current,total,timestart,filename,msg))								
-				query = {"TabladeContenido":fi,**payload}
+				query = {"TextoPDF":fi,**payload}
 				async with session.post(host+f_ids,data=query,headers=headers) as resp:
 					raw_data = await resp.read()
 					text = raw_data.decode('utf-8', errors='replace')
