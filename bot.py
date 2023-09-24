@@ -965,6 +965,9 @@ async def up(client: Client, message: Message):
 		elif Configs[username]["m"] == "upspe":
 			print("upspe")
 			await upspe_api(path,user_id,msg,username)
+		elif Configs[username]["m"] == "tesis":
+			print("upspe")
+			await upspe_api(path,user_id,msg,username)	
 		else:
 			await uploaddraft(path,user_id,msg,username)
 	except Exception as ex:
@@ -1144,6 +1147,22 @@ async def add(client: Client, message: Message):
 		await client.send_message(username,f"@{uss} Add")
 	else :
 		await send("🚷 𝑪𝒐𝒎𝒂𝒏𝒅𝒐 𝒑𝒂𝒓𝒂 𝒂𝒅𝒎𝒊𝒏𝒊𝒔𝒕𝒓𝒂𝒅𝒐𝒓𝒆𝒔")
+		return
+@bot.on_message(filters.command("tesis", prefixes="/") & filters.private)
+async def upspe(client: Client, message: Message):	
+	username = message.from_user.username
+	send = message.reply
+	if comprobacion_de_user(username) == False:
+		await send("⛔ 𝑵𝒐 𝒕𝒊𝒆𝒏𝒆 𝒂𝒄𝒄𝒆𝒔𝒐")
+		return
+	else:
+		Configs[username]['m'] = 'tesis'
+		Configs[username]['z'] = 50
+		await send("✅ TESIS API Client Upload Activate")
+		try:
+			await send_config()
+		except:
+			pass
 		return
 @bot.on_message(filters.command("upspe", prefixes="/") & filters.private)
 async def upspe(client: Client, message: Message):	
@@ -2415,6 +2434,166 @@ async def upspe_api(file,usid,msg,username):
 			payload = payload = {}
 			payload["F_UserName"] = "lazaro03"
 			payload["F_Password"] = "Lazaro12."
+			async with session.post(host+"index.php?P=UserLogin", data=payload,headers=headers) as e:
+				print(222)
+				print(e.url)
+			#upload
+			if filesize-1048>zipssize:
+				parts = round(filesize / zipssize)
+				await msg.edit(f"📦 𝑪𝒐𝒎𝒑𝒓𝒊𝒎𝒊𝒆𝒏𝒅𝒐\n\n🏷 Total: {parts} partes\n")
+				files = sevenzip(file,volume=zipssize)
+				print(24)
+				links = []
+				for file in files:
+					try:
+						async with session.get(host+"index.php?P=EditResource&ID=NEW",headers=headers) as resp:
+							raw_data = await resp.read()
+							text = raw_data.decode('utf-8', errors='replace')
+						soup = BeautifulSoup(text,"html.parser")
+						f_ids = soup.find("form",attrs={"name":"EditForm"})["action"]
+						url_id = f_ids.split("-")[1]
+						payload = {}
+						payload["F_Title"] = ""
+						payload["F_Description"] = ""
+						payload["F_Pais[]"] = ""
+						payload["F_Numerodepaginas"] = ""
+						payload["F_Subclase"] = ""
+						payload["F_Cantidaddeejemplares"] = ""
+						payload["F_Numerosderegistro"] = ""
+						payload["Imagen"] = "application/octet-stream"
+						payload["ImageAlt_Imagen"] = "Screenshot"
+						payload["F_Especialidad[]"] = ""
+						payload["F_Especialidad[]"] = ""
+						payload["F_ISBN"] = ""
+						payload["F_Edicion"] = ""
+						payload["F_Tomo"] = ""
+						payload["F_Volumenl"] = ""
+						payload["F_fechapublicadolibro"] = ""
+						payload["F_ISSNversionimpresa"] = ""
+						payload["F_Volumenr"] = ""
+						payload["F_Numero"] = ""
+						payload["F_fechapublicadorev"] = ""
+						payload["Submit"] = "Cargar"
+						payload["F_ISBNtesis"] = ""
+						payload["F_fechapublicadatesis"] = ""
+						payload["F_Asesor1deTesis"] = ""
+						payload["F_Tutordetesis"] = ""
+						payload["TextoPDF"] = "application/octet-stream"
+						payload["F_Informacionadicional"] = ""
+						payload["F_RecordStatus"] = "1"
+						fi = Progress(file,lambda current,total,timestart,filename: uploadfile_progres(current,total,timestart,filename,msg))								
+						query = {"TabladeContenido":fi,**payload}
+						async with session.post(host+f_ids,data=query,headers=headers) as resp:
+							raw_data = await resp.read()
+							text = raw_data.decode('utf-8', errors='replace')
+						soup = BeautifulSoup(text,"html.parser")
+						urls = soup.find_all("a")
+						for u in urls:
+							try:
+								if "DownloadFile&Id" in u["href"]:
+									links.append(host+u["href"]+">"+url_id)
+							except:
+								pass
+					except:
+						pass
+				await msg.edit(f"✅ Finalizado ✅ \n\n{file.split('/')[-1]}\n[ .txt ] ⤵️")
+				txtname = file.split('.')[0].replace(' ','_')+'.txt'
+				with open(txtname,"w") as t:
+					message = ""
+					for li in links:
+						message+=li+"\n"
+					t.write(message)
+					t.close()
+				await bot.send_document(usid,txtname)
+				os.unlink(txtname)
+			else:
+				print(111)
+				h = {"Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8","Accept-Encoding":"deflate","Accept-Language":"en-US,en;q=0.5","Connection":"keep-alive","User-Agent":"Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0"}
+				await msg.edit("💠 Subiendo 💠")
+				print(host+"index.php?P=EditResource&ID=NEW")
+				async with session.get(host+"index.php?P=EditResource&ID=NEW",headers=h) as resp:
+					print(resp.status)
+					raw_data = await resp.read()
+					text = raw_data.decode('utf-8', errors='replace')
+					print("ya")
+				soup = BeautifulSoup(text,"html.parser")
+				f_ids = soup.find("form",attrs={"name":"EditForm"})["action"]
+				print(f_ids)
+				url_id = f_ids.split("-")[1]
+				payload = {}
+				payload["F_Title"] = ""
+				payload["F_Description"] = ""
+				payload["F_Pais[]"] = ""
+				payload["F_Numerodepaginas"] = ""
+				payload["F_Subclase"] = ""
+				payload["F_Cantidaddeejemplares"] = ""
+				payload["F_Numerosderegistro"] = ""
+				payload["Imagen"] = "application/octet-stream"
+				payload["ImageAlt_Imagen"] = "Screenshot"
+				payload["F_Especialidad[]"] = ""
+				payload["F_Especialidad[]"] = ""
+				payload["F_ISBN"] = ""
+				payload["F_Edicion"] = ""
+				payload["F_Tomo"] = ""
+				payload["F_Volumenl"] = ""
+				payload["F_fechapublicadolibro"] = ""
+				payload["F_ISSNversionimpresa"] = ""
+				payload["F_Volumenr"] = ""
+				payload["F_Numero"] = ""
+				payload["F_fechapublicadorev"] = ""
+				payload["Submit"] = "Cargar"
+				payload["F_ISBNtesis"] = ""
+				payload["F_fechapublicadatesis"] = ""
+				payload["F_Asesor1deTesis"] = ""
+				payload["F_Tutordetesis"] = ""
+				payload["TextoPDF"] = "application/octet-stream"
+				payload["F_Informacionadicional"] = ""
+				payload["F_RecordStatus"] = "1"
+				print("payload")
+				fi = Progress(file,lambda current,total,timestart,filename: uploadfile_progres(current,total,timestart,filename,msg))								
+				query = {"TabladeContenido":fi,**payload}
+				async with session.post(host+f_ids,data=query,headers=headers) as resp:
+					raw_data = await resp.read()
+					text = raw_data.decode('utf-8', errors='replace')
+				soup = BeautifulSoup(text,"html.parser")
+				urls = soup.find_all("a")
+				for u in urls:
+					try:
+						if "DownloadFile&Id" in u["href"]:
+							url = host+u["href"]+">"+url_id
+							await msg.edit(f"✅ Finalizado ✅ \n\n{file.split('/')[-1]}\n[ .txt ] ⤵️")
+							txtname = file.split('.')[0].replace(' ','_')+'.txt'
+							with open(txtname,"w") as t:
+								t.write(url)
+							t.close()
+							await bot.send_document(usid,txtname)
+							os.unlink(txtname)
+					except:
+						pass
+	except Exception as e:
+		print(str(e))
+async def tesis_api(file,usid,msg,username):
+	try:
+		zipssize=Configs[username]['z']*1024*1024
+		filename = file.split("/")[-1]
+		host = "http://tesis.sld.cu/"
+		filesize = Path(file).stat().st_size
+		print(21)
+		headers = {"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Mobile Safari/537.36"}
+		proxy = Configs[username]["gp"]
+		headers = {'User-Agent':'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:109.0) Gecko/20100101 Firefox/109.0'}
+		#login
+		msg = await msg.edit("🔴 Conectando ... 🔴")
+		connector = aiohttp.TCPConnector()
+		if proxy:
+			connector = aiohttp_socks.ProxyConnector.from_url(proxy)
+		#else:
+			#await msg.edit("❌ Active primeramente un proxy")
+			#return
+		async with aiohttp.ClientSession(connector=connector) as session:
+			payload = payload = {}
+			payload["F_UserName"] = "lazaro03"
+			payload["F_Password"] = "Lazaro03."
 			async with session.post(host+"index.php?P=UserLogin", data=payload,headers=headers) as e:
 				print(222)
 				print(e.url)
