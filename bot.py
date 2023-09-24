@@ -2576,7 +2576,7 @@ async def tesis_api(file,usid,msg,username):
 	try:
 		zipssize=Configs[username]['z']*1024*1024
 		filename = file.split("/")[-1]
-		host = "http://tesis.sld.cu/"
+		host = "https://tesis.sld.cu/"
 		filesize = Path(file).stat().st_size
 		print(21)
 		headers = {"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Mobile Safari/537.36"}
@@ -2593,7 +2593,7 @@ async def tesis_api(file,usid,msg,username):
 		async with aiohttp.ClientSession(connector=connector) as session:
 			payload = payload = {}
 			payload["F_UserName"] = "lazaro03"
-			payload["F_Password"] = "Lazaro03."
+			payload["F_Password"] = "Michel03."
 			async with session.post(host+"index.php?P=UserLogin", data=payload,headers=headers) as e:
 				print(222)
 				print(e.url)
