@@ -1018,7 +1018,7 @@ async def view_process(client: Client, message: Message):
 	try:await get_messages()
 	except:await send_config()
 	if comprobacion_de_user(username) == False:
-		await send("⛔ 𝑵𝒐 𝒕𝒊𝒆𝒏𝒆 𝒂𝒄𝒄𝒆𝒔𝒐" ⛔)
+		await send("⛔ 𝑵𝒐 𝒕𝒊𝒆𝒏𝒆 𝒂𝒄𝒄𝒆𝒔𝒐 ⛔")
 		return
 	else:pass
 	await send(f"𝑬𝒍 𝒃𝒐𝒕 𝒕𝒊𝒆𝒏𝒆 𝒂𝒄𝒕𝒊𝒗𝒐(𝒔) {str(procesos)} 𝒅𝒆 500 ")
