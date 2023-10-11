@@ -95,7 +95,7 @@ async def start(client: Client, message: Message):
 ##	svmem = psutil.virtual_memory()
 	a = await client.send_message(username,'**⏳ Buscando Datos ⏳**')
 	msg = f"⚙️ 𝐁𝐨𝐭 **UpRedy** 𝐂𝐨𝐧𝐟𝐢𝐠𝐮𝐫𝐚𝐭𝐢𝐨𝐧 ⚙️\n"
-	msg += f"🗄️**Desarrollador** : @Michel1203 🗄️\n"
+	msg += f"🗄️**Propietario** : @Michel1203 🗄️\n"
 	msg += f"⚜️𝘡𝘪𝘱𝘴 𝘤𝘰𝘯𝘧𝘪𝘨𝘶𝘳𝘢𝘥𝘰𝘴 𝘢: **{zipps}MB**\n"	    
 	msg += "⚜️𝘌𝘴𝘵𝘢𝘥𝘰 𝘥𝘦𝘭 𝘣𝘰𝘵: "+ Configs["s"] +"\n"
 	if auto == "y":
@@ -1160,7 +1160,7 @@ async def medisur(client: Client, message: Message):
 		msg = "🌐 **Seleccione la Revista deseada** 🌐"
 		button1 = InlineKeyboardButton("☁️ MEDISUR ☁️", "rv medisur")
 		button2 = InlineKeyboardButton("☁️ UPSPE ☁️","rv upspe")
-		button3 = InlineKeyboardButton("☁️ TES.LM ☁️","rv tesisld")
+		button3 = InlineKeyboardButton("☁️ TESIS.LM ☁️","rv tesisld")
 		buttons = [[button1],[button2],[button3]]
 		reply_markup = InlineKeyboardMarkup(buttons)
 		await bot.send_message(username,msg,reply_markup=reply_markup)
@@ -3039,7 +3039,7 @@ async def callback_data(bot,callback):
 		elif data[1]=="tesisld":
 			Configs[username]['m'] = 'tesisld'
 			Configs[username]['z'] = 150
-			await call_back.edit_text("✅ TES.LM API Client Upload Activate ✅")
+			await call_back.edit_text("✅ TESIS.LM API Client Upload Activate ✅")
 		try:
 			await send_config()
 		except:
