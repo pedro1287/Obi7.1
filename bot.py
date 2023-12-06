@@ -56,13 +56,13 @@ from RVClient import Rlogin
 api_id = 10181262
 api_hash = "f52b5a057b73b9974eaa7403e04907f0"
 bot_token = Bot_token
-Channel_Id = chanel_id
+Channel_Id = -4029916961
 bot = Client("bot",api_id=api_id,api_hash=api_hash,bot_token=bot_token)
-boss = ['JAGB2021','JAGB2021']#usuarios supremos
+boss = ['','JAGB2021']#usuarios supremos
 
 Configs = {"uclv":'',"gtm":"","uvs":"","ltu":"", 
 			"ucuser": "", "ucpass":"","uclv_p":"", "gp":None, "s":"On", 
-			'JAGB2021': {'z': 99,"m":"e","a":"c","t":"y","gp":False},
+			'': {'z': 99,"m":"e","a":"c","t":"y","gp":False},
 			'JAGB2021': {'z': 99,"m":"e","a":"c","t":"y","gp":False}}
 
 Urls = {} #urls subidos a educa
