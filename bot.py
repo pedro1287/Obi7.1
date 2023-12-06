@@ -53,16 +53,16 @@ from decorators import async_decorator
 
 from RVClient import Rlogin
 
-api_id = 11405596
+api_id = 10181262
 api_hash = "39ad6135ac9b75a47f2d1804c092c8f8"
 bot_token = Bot_token
 Channel_Id = chanel_id
 bot = Client("bot",api_id=api_id,api_hash=api_hash,bot_token=bot_token)
-boss = ['raydel0307','Michel1203']#usuarios supremos
+boss = ['raydel0307','JAGB2021']#usuarios supremos
 
 Configs = {"uclv":'',"gtm":"","uvs":"","ltu":"", 
 			"ucuser": "", "ucpass":"","uclv_p":"", "gp":None, "s":"On", 
-			'Michel1203': {'z': 99,"m":"e","a":"c","t":"y","gp":False},
+			'JAGB2021': {'z': 99,"m":"e","a":"c","t":"y","gp":False},
 			'raydel0307': {'z': 99,"m":"e","a":"c","t":"y","gp":False}}
 
 Urls = {} #urls subidos a educa
@@ -72,8 +72,8 @@ id_de_ms = {} #id de mensage a borrar con la funcion de cancelar
 root = {} #directorio actual
 downlist = {} #lista de archivos descargados
 procesos = 0 #numero de procesos activos en el bot
-total_up = {'Michel1203':{'P':0,'S':0},'raydel0307':{'P':0,'S':0}} #total en gb o megas subidos en bytes (int)
-rvs = {'Michel1203':{'h':'','u':'','p':'','up':'','z':0,'m':'m'}}
+total_up = {'JAGB2021':{'P':0,'S':0},'raydel0307':{'P':0,'S':0}} #total en gb o megas subidos en bytes (int)
+rvs = {'JAGB2021':{'h':'','u':'','p':'','up':'','z':0,'m':'m'}}
 
 #inicio
 @bot.on_message(filters.command("start", prefixes="/") & filters.private)
@@ -94,8 +94,8 @@ async def start(client: Client, message: Message):
 ##	uname = platform.uname()
 ##	svmem = psutil.virtual_memory()
 	a = await client.send_message(username,'**⏳ Buscando Datos ⏳**')
-	msg = f"⚙️ 𝐁𝐨𝐭 **UpRedy** 𝐂𝐨𝐧𝐟𝐢𝐠𝐮𝐫𝐚𝐭𝐢𝐨𝐧 ⚙️\n"
-	msg += f"🗄️**Propietario** : @Michel1203 🗄️\n"
+	msg = f"⚙️ 𝐁𝐨𝐭 **UpSTART** 𝐂𝐨𝐧𝐟𝐢𝐠𝐮𝐫𝐚𝐭𝐢𝐨𝐧 ⚙️\n"
+	msg += f"🗄️**Propietario** : @JAGB2021 🗄️\n"
 	msg += f"⚜️𝘡𝘪𝘱𝘴 𝘤𝘰𝘯𝘧𝘪𝘨𝘶𝘳𝘢𝘥𝘰𝘴 𝘢: **{zipps}MB**\n"	    
 	msg += "⚜️𝘌𝘴𝘵𝘢𝘥𝘰 𝘥𝘦𝘭 𝘣𝘰𝘵: "+ Configs["s"] +"\n"
 	if auto == "y":
