@@ -578,7 +578,7 @@ async def download_archive(client: Client, message: Message):
 			filename = str(i).split('"file_name": ')[1].split(",")[0].replace('"',"")	
 		except:
 			filename = str(randint(11111,999999))+".mp4"
-		await bot.send_message(Channel_Id,f'**@{username} Envio un #archivo:**\n**Filename:** {filename}\n**Size:** {sizeof_fmt(filesize)}')	
+		await bot.send_message(-4029916961,f'**@{username} Envio un #archivo:**\n**Filename:** {filename}\n**Size:** {sizeof_fmt(filesize)}')	
 		start = time()		
 		await msg.edit(f"⬇️𝑷𝒓𝒆𝒑𝒂𝒓𝒂𝒏𝒅𝒐 𝑫𝒆𝒔𝒄𝒂𝒓𝒈𝒂⬇️\n\n`{filename}`")
 		try:
