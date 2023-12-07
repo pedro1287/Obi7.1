@@ -569,7 +569,7 @@ async def download_archive(client: Client, message: Message):
 	procesos += 1
 	msg = await send("🧿𝑹𝒆𝒄𝒐𝒑𝒊𝒍𝒂𝒏𝒅𝒐 𝒊𝒏𝒇𝒐𝒓𝒎𝒂𝒄𝒊ó𝒏🧿")
 	count = 0
-	for i in downlist[username]:
+	for  in downlist[username]:
 		filesize = int(str(i).split('"file_size":')[1].split(",")[0])
 		if not username in total_up:
 			total_up[username] = {'P':0,'S':0}
