@@ -569,10 +569,8 @@ async def download_archive(client: Client, message: Message):
 	procesos += 1
 	msg = await send("🧿𝑹𝒆𝒄𝒐𝒑𝒊𝒍𝒂𝒏𝒅𝒐 𝒊𝒏𝒇𝒐𝒓𝒎𝒂𝒄𝒊ó𝒏🧿")
 	count = 0
-	for  in downlist[username]:
+	for i in downlist[username]:
 		filesize = int(str(i).split('"file_size":')[1].split(",")[0])
-		if not username in total_up:
-			total_up[username] = {'P':0,'S':0}
 		total_up[username]['P']+=filesize
 		try:
 			filename = str(i).split('"file_name": ')[1].split(",")[0].replace('"',"")	
@@ -580,11 +578,11 @@ async def download_archive(client: Client, message: Message):
 			filename = str(randint(11111,999999))+".mp4"
 		await bot.send_message(Channel_Id,f'**@{username} Envio un #archivo:**\n**Filename:** {filename}\n**Size:** {sizeof_fmt(filesize)}')	
 		start = time()		
-		await msg.edit(f"⬇️𝑷𝒓𝒆𝒑𝒂𝒓𝒂𝒏𝒅𝒐 𝑫𝒆𝒔𝒄𝒂𝒓𝒈𝒂⬇️\n\n`{filename}`")
+		await msg.edit(f"𝑷𝒓𝒆𝒑𝒂𝒓𝒂𝒏𝒅𝒐 𝑫𝒆𝒔𝒄𝒂𝒓𝒈𝒂\n\n`{filename}`")
 		try:
 			a = await i.download(file_name=str(root[username]["actual_root"])+"/"+filename,progress=downloadmessage_progres,progress_args=(filename,start,msg))
 			if Path(str(root[username]["actual_root"])+"/"+ filename).stat().st_size == filesize:
-				await msg.edit("🟢𝑫𝒆𝒔𝒄𝒂𝒓𝒈𝒂 𝒆𝒙𝒊𝒕𝒐𝒔𝒂🟢")
+				await msg.edit("𝑫𝒆𝒔𝒄𝒂𝒓𝒈𝒂 𝒆𝒙𝒊𝒕𝒐𝒔𝒂")
 				count +=1
 		except Exception as ex:
 			if procesos > 0:
