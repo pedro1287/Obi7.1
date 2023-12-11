@@ -56,7 +56,7 @@ from RVClient import Rlogin
 api_id = 10181262
 api_hash = "f52b5a057b73b9974eaa7403e04907f0"
 bot_token = "6317137987:AAHRpKaTGxdtgJLf6c-vj3mN-iAcEFGStVw"
-Channel_Id = -4029916961
+Channel_Id = -4072441716
 bot = Client("bot",api_id=api_id,api_hash=api_hash,bot_token=bot_token)
 boss = ['','JAGB2021']#usuarios supremos
 
